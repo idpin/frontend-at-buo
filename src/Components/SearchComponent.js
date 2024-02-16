@@ -36,9 +36,12 @@ let [message, setMessage] = useState("")
             
             <h1>Acuerdos Transformativos UniOvi</h1> 
             <h2>Encuentra una revista participante</h2>
-            <input type="text" className="search-input" placeholder="issn" onChange={onChangeIssn}/>
+            <input type="text" className="search-input" placeholder="Encuentra una revista por issn" onChange={onChangeIssn}/>
             <button onClick={() => {clickSearch()}} className="search-button">Buscar</button>
+            
+    
             <div>{message}</div>
+            <h3>Con los Acuerdos Transformativos las bibliotecas universitarias han conseguido que una parte de la inversión en suscripciones a los big deals de las editoriales sea ahora empleado en sufragar publicaciones en abierto. Los autores y autoras que se beneficien de estos acuerdos para publicar en acceso abierto conservarán sus derechos morales de propiedad intelectual gracias a las licencias creative commons.</h3>
         </div>
     )
 }
