@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { backendURL } from "../Globals";
 
+
+
 let SearchComponent = (props) => {
 
 let [issn,setIssn] = useState("")
@@ -21,29 +23,44 @@ let [message, setMessage] = useState("")
                 issn: issn
             })
         })
-
+        
         if ( response.ok ){
+    
             let jsonData = await response.json();
             setMessage(JSON.stringify(jsonData))
+            
         } else {
             let jsonData = await response.json();
             setMessage(jsonData.error+": "+issn)
         }
     }
 
+
     return (
+       
         <div className="search-form">
-            
-            <h1>Acuerdos Transformativos UniOvi</h1> 
-            <h2>Encuentra una revista participante</h2>
-            <input type="text" className="search-input" placeholder="Encuentra una revista por issn" onChange={onChangeIssn}/>
-            <button onClick={() => {clickSearch()}} className="search-button">Buscar</button>
-            
-    
-            <div>{message}</div>
-            <h3>Con los Acuerdos Transformativos las bibliotecas universitarias han conseguido que una parte de la inversión en suscripciones a los big deals de las editoriales sea ahora empleado en sufragar publicaciones en abierto. Los autores y autoras que se beneficien de estos acuerdos para publicar en acceso abierto conservarán sus derechos morales de propiedad intelectual gracias a las licencias creative commons.</h3>
+        <h1>Acuerdos Transformativos UniOvi</h1>
+        <hr className="hr-media"/>
+            <div className="ph2">
+            <p>Encuentra una revista participante</p>
+            </div>
+        <input type="text" className="search-input" placeholder="Encuentra una revista por ISSN" onChange={onChangeIssn}/>
+        <button onClick={() => {clickSearch()}} className="search-button">Buscar</button>
+        <div>{message}</div>
+            <div className="p">
+                 <p>Crue Universidades Españolas y el Consejo Superior de Investigaciones Científicas han alcanzado acuerdos transformativos de sus licencias de suscripción con las editoriales Elsevier, Wiley, Springer Nature y American Chemical Society con el objetivo de avanzar en una socialización del conocimiento mediante un creciente acceso libre al mismo.
+                 </p>
+                 <p> Gracias a estas negociaciones, los investigadores e investigadoras de ambas instituciones podrán seguir accediendo a la lectura y descarga de los artículos científicos de las revistas suscritas y publicar más artículos en abierto, sin costes adicionales. Estos acuerdos permitirán que más investigaciones españolas sean leídas, citadas y desarrolladas.
+                </p>
+               
+            </div>
+           
         </div>
+
+
     )
+
+    
 }
 
 export default SearchComponent;

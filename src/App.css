@@ -3,15 +3,18 @@
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  inline-size: 12%;
+  margin-left: 1cm;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App-buo {
+  inline-size: 12%;
+  margin-left: 10cm;
+  margin-top: 3cm;
 }
+
+
 
 .App-header {
   background-color: rgb(0, 133, 120);
@@ -22,6 +25,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
@@ -41,40 +45,120 @@
 
 .search-form {
   text-align: center;
-  margin: 20px;
 }
 
 .search-input {
-  padding: 10px;
-  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 13px;
+  font-size: 18px;
+  font-family: sans-serif;
   border: 1px solid #ccc;
   border-radius: 1px;
-  width: 300px;
+  width: 350px;
   max-width: 100%;
+  margin-block-end: 300;
 }
 
 .search-button {
-  padding: 18px 20px;
-  font-size: 16px;
+  padding: 22px 25px;
+  font-size: 20px;
   background-color: rgb(0, 133, 120);
   color: #fff;
+  font-family: sans-serif;
+  font-weight:500;
   border: none;
   border-radius: 1px;
   cursor: pointer;
+  margin-left: 80px;
 }
+
+hr {
+  width: 100%;
+  background-color:rgb(168, 166, 166);
+  margin-top: 100px;
+
+}
+
+
+.hr2 {
+width: 100px;
+background-color:rgb(168, 166, 166);
+margin-top: 100px;
+}
+
+
 
 h1 {
-    font-family: sans-serif;
-    font-weight: 10;
-    color:rgb(139, 142, 148);
+  
+margin-top: 70px;
+font-family: sans-serif;
+font-weight: 10;
+color:rgb(70, 71, 74);
+font-size: 250%;
+}
 
+.ph2 {
+ 
+margin-top: 1cm;
+font-family: sans-serif;
+font-weight: 10;
+color:rgb(70, 71, 74);
+font-size:180%;
+}
+
+
+.p {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height: 150%;
+  margin-top: 3cm;
+  color:rgb(118, 122, 130);
+  margin-left: 9.8cm;
+  text-align: left;
+  margin-block: 300;
+  font-size: 0.6cm;
+  width: 65%;
 
 }
 
-h2 {
-  font-family: sans-serif;
-  font-weight: 10;
-  color:rgb(139, 142, 148);
+.cabecera {
+
+  position: fixed
+
+}
+
+.footer {
+
+  position: absolute;
+  bottom:auto;
+  width: 100%;
+  height: 40px;
+  color: rgb(99, 94, 94);
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:130%;
+}
 
 
+.enlace {
+  color:rgb(78, 188, 212);
+  font-size: 10;
+}
+
+
+.hr-alta {
+  margin-top: auto;
+  border-top: 1px solid rgb(222, 215, 215);
+  
+}
+
+.hr-media {
+  margin-top: 1.5cm;
+  width: 65%;
+  border-top: 1px solid rgb(222, 215, 215);
+  
+}
+
+.hr-baja {
+  border-top: 3px solid rgb(0, 133, 120);
 }
