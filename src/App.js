@@ -2,7 +2,9 @@
 
 import './App.css';
 import SearchComponent from './Components/SearchComponent';
+import DashboardComponent from './Components/DashboardComponent';
 import uniovi from './uniovi.png'
+import { Routes, Route} from 'react-router-dom';
 
 
 
@@ -11,13 +13,22 @@ function App() {
 
   return (
   <html>
-    <header>
+    <header className='fija'>
       <img src={uniovi} className='App-logo' alt='logo'/>
       <hr className="hr-alta"></hr>
-      </header>
+    </header>
     <body>
      <div>
-        <SearchComponent />
+     <SearchComponent />
+      <Routes>
+        <Route path="/dashboard" element={
+          DashboardComponent}></Route>
+
+        </Routes>
+      
+       
+
+       
       </div>
     </body>
   <footer className="footer" > 

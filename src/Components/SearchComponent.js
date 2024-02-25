@@ -28,11 +28,13 @@ let [message, setMessage] = useState("")
     
             let jsonData = await response.json();
             setMessage(JSON.stringify(jsonData))
+
             
         } else {
             let jsonData = await response.json();
             setMessage(jsonData.error+": "+issn)
         }
+        
     }
 
 
@@ -42,11 +44,11 @@ let [message, setMessage] = useState("")
         <h1>Acuerdos Transformativos UniOvi</h1>
         <hr className="hr-media"/>
             <div className="ph2">
-            <p>Encuentra una revista participante</p>
+            <p>Encuentra una revista participante:</p>
             </div>
         <input type="text" className="search-input" placeholder="Encuentra una revista por ISSN" onChange={onChangeIssn}/>
         <button onClick={() => {clickSearch()}} className="search-button">Buscar</button>
-        <div>{message}</div>
+        <div className="json">{message}</div>
             <div className="p">
                  <p>Crue Universidades Españolas y el Consejo Superior de Investigaciones Científicas han alcanzado acuerdos transformativos de sus licencias de suscripción con las editoriales Elsevier, Wiley, Springer Nature y American Chemical Society con el objetivo de avanzar en una socialización del conocimiento mediante un creciente acceso libre al mismo.
                  </p>
