@@ -4,7 +4,6 @@ import { backendURL } from "../Globals";
 let CreateUserComponent = () => {
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
-
     let [message, setMessage] = useState("")
 
     let changeEmail = (e) => {
@@ -41,10 +40,10 @@ let CreateUserComponent = () => {
             <h2>Register user</h2>
             <h3> { message }</h3>
             <div className="center-box">
-                <div className="from-group">
+                <div className="form-group">
                     <input className="input2" type="text" placeholder="your email" onChange={changeEmail}/>                
                     </div>
-                    <div className="from-group">
+                    <div className="form-group">
                         <input className="input2" ctype="text"placeholder="your password" onChange={changePassword}/>
                     </div>
                     <button onClick={clickCreate}className="button2">Create Account</button>

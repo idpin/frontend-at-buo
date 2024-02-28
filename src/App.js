@@ -3,8 +3,9 @@
 import './App.css';
 import SearchComponent from './Components/SearchComponent';
 import uniovi from './uniovi.png'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import CreateUserComponent from './Components/CreateUserComponent';
+import LoginUserComponent from './Components/LoginUserComponent';
 
 
 
@@ -21,8 +22,10 @@ function App() {
      <div className="main-container">
       <nav>
         <ul className='navbar'>
-          <li>Search</li>
-          <li>Login</li>
+          <li>Index</li>
+          <li><Link to="/search">Search</Link></li>
+          <li><Link to="/register">Register</Link></li>
+          <li><Link to="/login">Login</Link></li>
 
         </ul>
       </nav>
@@ -31,6 +34,10 @@ function App() {
         <Routes>
             <Route path="/register" element={
               <CreateUserComponent/>
+            }/>
+
+            <Route path="/login" element={
+              <LoginUserComponent/>
             }/>
 
             <Route path="/search" element={
