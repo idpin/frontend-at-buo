@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { backendURL } from "../Globals";
 
@@ -9,6 +9,9 @@ let SearchComponent = (props) => {
 let [issn,setIssn] = useState("")
 
 let [message, setMessage] = useState("")
+
+
+
 
     let onChangeIssn = (e) => {
         setIssn(e.currentTarget.value)
@@ -61,6 +64,8 @@ let [message, setMessage] = useState("")
 
 
     )
+
+   
 
     
 }

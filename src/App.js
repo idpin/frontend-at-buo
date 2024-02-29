@@ -6,8 +6,11 @@ import uniovi from './uniovi.png'
 import { Routes, Route, Link } from 'react-router-dom';
 import CreateUserComponent from './Components/CreateUserComponent';
 import LoginUserComponent from './Components/LoginUserComponent';
+import JournalsComponent from './Components/JournalsComponent';
+import NewsComponent from './Components/NewsComponent';
 
 
+// MyJournals y Dashboards son enlaces condicionales; también el disconnect es condicional
 
 function App() {
 
@@ -16,16 +19,23 @@ function App() {
   <html>
     <header className='fija'>
       <img src={uniovi} className='App-logo' alt='logo'/>
-      <hr className="hr-alta"></hr>
+      
     </header>
    
      <div className="main-container">
       <nav>
         <ul className='navbar'>
-          <li>Index</li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/news">News</Link></li>
           <li><Link to="/search">Search</Link></li>
+          <li><Link to="/journals">Journals</Link></li>
+          <li><Link to="/workflow">Workflows</Link></li>
+          <li><Link to="/myJournals">MyJournals</Link></li>
+          <li><Link to="/dashboard">Dashboards</Link></li>
+          <li><Link to="/reports">Reports</Link></li>
           <li><Link to="/register">Register</Link></li>
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/disconnect">Disconnect</Link></li>
 
         </ul>
       </nav>
@@ -42,8 +52,18 @@ function App() {
 
             <Route path="/search" element={
               <SearchComponent/>
+              
             }/>   
 
+            <Route path="/journals" element={
+              <JournalsComponent/>
+              
+            }/>   
+
+            <Route path="/news" element={
+              <NewsComponent/>
+              
+            }/>  
         </Routes>
       
        

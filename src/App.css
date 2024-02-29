@@ -113,11 +113,10 @@ font-size:140%;
   line-height: 150%;
   margin-top: 0.5cm;
   color:rgb(45, 46, 49);
-  margin-left: 5.15cm;
+  margin-left: 1cm;
   text-align: left;
-  margin-block: 300;
   font-size: 0.5cm;
-  width: 70%;
+  width: 100%;
 
 }
 
@@ -175,9 +174,8 @@ body {
 }
 
 .main-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
+  max-width: 900px;
+  margin: 5px auto;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -192,6 +190,9 @@ h1, h2, h3 {
 
 .navbar {
   list-style-type: none;
+  
+  width:max-content;
+  justify-content: center;
   margin: 0;
   padding: 0;
   overflow: hidden;
