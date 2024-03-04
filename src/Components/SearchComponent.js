@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 import { backendURL } from "../Globals";
 
-
+import { Table } from "antd"
 
 let SearchComponent = (props) => {
 
 let [issn,setIssn] = useState("")
-
+let [journals, setJournals] = useState ([])
 let [message, setMessage] = useState("")
 
 
@@ -17,7 +17,7 @@ let [message, setMessage] = useState("")
         setIssn(e.currentTarget.value)
     }
 
-    let clickSearch = async () => {
+    let clickSearch = async () => { //PORTE: cómo hacer que el enter haga click
         let response = await fetch(backendURL+"/journals/"+issn, {
             method: "GET",
             mode: "cors",
@@ -31,6 +31,7 @@ let [message, setMessage] = useState("")
     
             let jsonData = await response.json();
             setMessage(JSON.stringify(jsonData))
+            setJournals(jsonData)
 
             
         } else {
@@ -40,7 +41,31 @@ let [message, setMessage] = useState("")
         
     }
 
+    let columns = [
+        {
+            title: "title",
+            dataIndex: "title",
+            render: (text) => <a>{text}</a>,
+        },
+        {
+            title: "issn",
+            dataIndex: "issn"
+        },
+        {
+            title: "publisher",
+            dataIndex: "publisher"
+        },
+        {
+            title: "business model",
+            dataIndex: "business model"
+        },
+        {
+            title: "APC coverage",
+            dataIndex: "APC coverage"
+        }
+    ]
 
+  
     return (
        
         <div className="search-form">
@@ -51,17 +76,11 @@ let [message, setMessage] = useState("")
             </div>
         <input type="text" className="search-input" placeholder="Encuentra una revista por ISSN" onChange={onChangeIssn}/>
         <button onClick={() => {clickSearch()}} className="search-button">Buscar</button>
-        <div className="json">{message}</div>
-            <div className="p">
-                 <p>Crue Universidades Españolas y el Consejo Superior de Investigaciones Científicas han alcanzado acuerdos transformativos de sus licencias de suscripción con las editoriales Elsevier, Wiley, Springer Nature y American Chemical Society con el objetivo de avanzar en una socialización del conocimiento mediante un creciente acceso libre al mismo.
-                 </p>
-                 <p> Gracias a estas negociaciones, los investigadores e investigadoras de ambas instituciones podrán seguir accediendo a la lectura y descarga de los artículos científicos de las revistas suscritas y publicar más artículos en abierto, sin costes adicionales. Estos acuerdos permitirán que más investigaciones españolas sean leídas, citadas y desarrolladas.
-                </p>
-               
-            </div>
+       
+        { journals.length > 0 && <Table columns={columns} dataSource={journals}/>} 
            
         </div>
-
+//ahora no se ve el mensaje de error cuando el parámetro puesto en la caja no devuelve resultados. Queremos que salga el mensaje: has puesto mal el parámetro o la revista que buscas no forma parte de los ATs
 
     )
 

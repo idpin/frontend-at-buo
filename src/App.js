@@ -1,46 +1,69 @@
 
+import 'antd/dist/reset.css'
 
-import './App.css';
-import SearchComponent from './Components/SearchComponent';
 import uniovi from './uniovi.png'
-import { Routes, Route, Link } from 'react-router-dom';
+import './App.css'; 
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+
+import SearchComponent from './Components/SearchComponent';
 import CreateUserComponent from './Components/CreateUserComponent';
 import LoginUserComponent from './Components/LoginUserComponent';
-import JournalsComponent from './Components/JournalsComponent';
 import NewsComponent from './Components/NewsComponent';
+import DashboardComponent from './Components/DashboardComponent'; 
+import AboutComponent from './Components/AboutComponent';
+import { Layout, Menu } from 'antd';
+import { Header } from 'antd/es/layout/layout';
+import { useEffect, useState } from 'react';
 
 
-// MyJournals y Dashboards son enlaces condicionales; también el disconnect es condicional
+
+
 
 function App() {
+  let [notification, setNotification] = useState("");
+  let [login, setLogin] = useState(false)
+  let navigate = useNavigate();
 
+ 
+  let { Header, Content, Footer} = Layout
 
   return (
-  <html>
-    <header className='fija'>
-      <img src={uniovi} className='App-logo' alt='logo'/>
-      
-    </header>
-   
-     <div className="main-container">
-      <nav>
-        <ul className='navbar'>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/news">News</Link></li>
-          <li><Link to="/search">Search</Link></li>
-          <li><Link to="/journals">Journals</Link></li>
-          <li><Link to="/workflow">Workflows</Link></li>
-          <li><Link to="/myJournals">MyJournals</Link></li>
-          <li><Link to="/dashboard">Dashboards</Link></li>
-          <li><Link to="/reports">Reports</Link></li>
-          <li><Link to="/register">Register</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/disconnect">Disconnect</Link></li>
 
-        </ul>
-      </nav>
+    <Layout className='layout'style={{ minHeight:'100vh'}} > 
+      <Header style={{ marginTop:'0cm'}}>
+        
+              { !login && ( //para cuando no estás logueado
+            <Menu theme="dark" mode="horizontal" items={[
+                {key:"menuAbout", label:<Link to="/about">About</Link> },
+                {key:"menuNews", label:<Link to="/news">News</Link> },
+                {key:"Menusearch", label:<Link to="/search">Journals</Link> },
+                {key:"MenuWorflow", label:<Link to="/workflow">Workflows</Link> },
+                {key:"MenuReports", label:<Link to="/reports">Reports</Link> },
+                {key:"MenuQueries", label:<Link to="/queries">Queries</Link> },
+                {key:"MenuRegister", label:<Link to="/register">Register</Link> },
+                {key:"MenuLogin", label:<Link to="/login">Login</Link> },
+             ]}>
+            </Menu>
+       )} 
+       
 
-     
+          { login && ( //para cuando estás logueado
+              <Menu theme="dark" items={[
+               {key:"menuAbout", label:<Link to="/about">About</Link> },
+               {key:"menuNews", label:<Link to="/news">News</Link> },
+               {key:"Menusearch", label:<Link to="/search">Search</Link> },
+               {key:"MenuWorflow", label:<Link to="/workflow">Workflows</Link> },
+               {key:"MenuWorMyJournals", label:<Link to="/myJournals">MyJournals</Link> },
+               {key:"MenuWorDashboards", label:<Link to="/dashboard">Dashboards</Link> },
+               {key:"MenuReports", label:<Link to="/reports">Reports</Link> },
+               {key:"MenuQueries", label:<Link to="/queries">Queries</Link> },
+               {key:"MenuDisconnect", label:<Link to="/disconnect">Disconnect</Link> },
+              ]}>
+             </Menu>
+       )}
+      </Header>
+
+      <Content style={ { padding: '20px 50px'}}>
         <Routes>
             <Route path="/register" element={
               <CreateUserComponent/>
@@ -53,29 +76,30 @@ function App() {
             <Route path="/search" element={
               <SearchComponent/>
               
-            }/>   
-
-            <Route path="/journals" element={
-              <JournalsComponent/>
-              
-            }/>   
+            }/>     
 
             <Route path="/news" element={
               <NewsComponent/>
               
             }/>  
+            <Route path="/dashboards" element={
+              <DashboardComponent/>
+              
+            }/>,
+            <Route path="/aboutcomponent" element={
+              <AboutComponent/>
+              
+            }/> 
         </Routes>
-      
-       
+      </Content>
 
-       
-      </div>
-  <footer className="footer" > 
-    <hr className="hr-baja"></hr>
-    <p>Biblioteca de la Universidad de Oviedo 2024</p>
-    <p>Licencia Apache 2.0 <a href="https://github.com/idpin">GitHub</a> </p>
-  </footer>
-  </html>
+      <Footer style={ { textAlign:"center"}}>
+        Biblioteca de la Universidad de Oviedo
+      </Footer>
+    </Layout>
+      
+
+
   );
 }
 
