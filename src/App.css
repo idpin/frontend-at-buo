@@ -1,0 +1,381 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  inline-size: 20%;
+  margin-left: 0%;
+  display: inline-block;
+  color: #8e8e8e;
+  
+}
+
+.imagen-texto {
+  padding-top: '0.1cm';
+  display: inline-block;
+  vertical-align:middle;
+}
+
+
+
+.Wiley-logo {
+  inline-size: 35%;
+}
+
+.CCC-logo {
+  inline-size: 40%;
+}
+
+.CCC-logo {
+  inline-size: 30%;
+}
+
+
+.App-header {
+  background-color: rgb(0, 133, 120);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+}
+
+.HeaderAnt {
+  background-color: #ffffff;
+
+}
+.webcolor {
+  background-color: #ffffff;
+}
+
+.tituloheader {
+  text-align: left;
+}
+
+.App-link {
+  color: #edf0f1;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*New style */
+
+.search-form {
+  
+  font-family: Gizmo;
+  padding-top: '5cm';
+
+}
+.grafico {
+  
+padding-top: 2cm;
+ text-align: center;
+}
+
+.grafico2 {
+  
+  padding-top: 5cm;
+   text-align: center;
+  }
+
+.cajas-centradas {
+  
+  display: flex; 
+  justify-content: center; 
+
+}
+.boton {
+  
+  display: flex; 
+  justify-content: center;
+  padding-left: 15.3cm; 
+}
+.cuartiles {
+  
+  display: flex; 
+  padding-left: 8.5cm;
+  
+
+
+}
+
+.search-input {
+  margin-top: px;
+  margin-bottom: 20px;
+  margin-right: 1cm;
+  padding: 8px;
+  font-size: 18px;
+  font-family: sans-serif;
+  border: 1px solid #cbcaca;
+  border-radius: 5px;
+  width: 150px;
+  size: '6cm';
+
+  margin-block-end: 100;
+}
+
+
+
+
+.caja-linea {
+  border: 1px;
+  float:inline-end;
+  padding-right: '10cm';
+  width: 350px;
+
+  
+}
+
+
+.search-button {
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: rgb(0, 133, 120);
+  color: #fff;
+  font-family: sans-serif;
+  font-weight:500;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  margin-left: 80px;
+}
+
+hr {
+  width: 53.7%;
+  background-color:rgb(168, 166, 166);
+
+
+}
+
+
+.hr2 {
+width: 100px;
+background-color:rgb(168, 166, 166);
+margin-top: 100px;
+}
+
+
+
+h1 {
+margin-top: 70px;
+font-family:'NexusSans';
+
+color:rgb(40, 41, 43);
+font-size: 200%;
+}
+
+.ph2 {
+ 
+margin-top: 1cm;
+font-family: 'nexussans, arial, sans-serif';
+font-weight: 10;
+color:rgb(33, 33, 35);
+font-size:140%;
+}
+
+
+.p {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height:140%;
+
+  color:rgb(45, 46, 49);
+  margin-left: 1cm;
+  text-align: left;
+  font-size: 0.53cm;
+  width: 100%;
+
+}
+
+.pr {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height:140%;
+
+  color:rgb(45, 46, 49);
+  margin-left: 3cm;
+  text-align: left;
+  font-size: 0.40cm;
+  width: 100%;
+
+}
+
+.p1 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height: 100%;
+  margin-top: 0.5cm;
+  color:rgb(43, 43, 43);
+  margin-left: 1cm;
+  text-align: left;
+  font-size: 0.7cm;
+  width: 100%;
+
+}
+.pr1 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height: 100%;
+  margin-top: 0.5cm;
+  color:rgb(185, 19, 19);
+  margin-left: 1cm;
+  text-align: left;
+  font-size: 0.50cm;
+  width: 100%;
+
+}
+
+.pr11 {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height: 100%;
+  margin-top: 0.5cm;
+  color:rgb(11, 11, 11);
+  margin-left: 1cm;
+  text-align: left;
+  font-size: 0.50cm;
+  width: 100%;
+}
+
+
+.cabecera {
+
+  position: fixed
+
+}
+
+.footer {
+
+  position:absolute;
+  bottom:0%;
+  width: 100%;
+  height: 40px;
+  color: rgb(99, 94, 94);
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:100%;
+}
+
+
+.enlace {
+  color:rgb(78, 188, 212);
+  font-size: 10;
+}
+
+
+.hr-alta {
+  margin-top: auto;
+  border-top: 1px solid rgb(222, 215, 215);
+  
+}
+
+.hr-media {
+  margin-top: 0.8cm;
+  width: 70%;
+  border-top: 1px solid rgb(222, 215, 215);
+  
+}
+
+.hr-baja {
+  border-top: 3px solid rgb(0, 133, 120);
+}
+
+.json {
+  font-size:1cm;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.main-container {
+  max-width: 900px;
+  margin: 5px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+
+/** Nuevo navbar **/
+
+.navbar {
+  list-style-type: none;
+  
+  width:max-content;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #3500f7;
+}
+
+.center-box {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display:flex;
+}
+
+.input2 {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width:100%;
+}
+
+.button2 {
+  padding: 10px 20px;
+  background-color: rgb(0, 133, 120);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width:100%;
+}
+
+button:hover {
+  background-color: rgb(29, 171, 157);
+}
+
+.errorMessage {
+  text-align: center;
+  color: rgb(255, 0, 0);
+}
+
+.colorweb {
+  background-color: rgb(29, 171, 157);
+}
