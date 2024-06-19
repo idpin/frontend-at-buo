@@ -9,9 +9,8 @@ let AvailablesComponent = () => {
 
    
     const option = {
-        title: {
-          text: 'Grado de ejecución'
-        },
+        
+        
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -42,7 +41,7 @@ let AvailablesComponent = () => {
           {
             name: 'APCs asignados',
             type: 'bar',
-            data: [20, 11, 15, 53, 65, 172]
+            data: [ 20, 11, 15, 53, 65, 172]
           }
         ]
       };
@@ -52,10 +51,10 @@ let AvailablesComponent = () => {
       return (
      
         
-        <Card style={{ textAlign:'center', width: '40%'}}>
+        <div style={{ textAlign:'center', width: '50%', paddingTop: "3cm"}}>
          <ReactECharts option={option} />
          <p className="pr11">Para CUP y SCOAP los APCs son ilimitados.</p>
-         </Card>
+         </div>
        
        
      )

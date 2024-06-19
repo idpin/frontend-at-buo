@@ -35,7 +35,7 @@ let App = ()=> {
   let [notification, setNotification] = useState("");
   let [login, setLogin] = useState(false)
   let navigate = useNavigate();
-
+  let { Header, Content, Footer} = Layout
 
 
   useEffect (()=>{
@@ -56,16 +56,16 @@ let App = ()=> {
       setLogin(false);
     }
 //No está funcionando. Video 8.8.8. Control sobre usuarios identificados. Es para que al recargar la página no se pierda el login hecho antes
+  
   }
- 
-  let { Header, Content, Footer} = Layout
 
-  let disconnect = async () =>{
-    await fetch (backendURL+"/users/disconnect?apiKey="+localStorage.getItem("apiKey"))
-
-    localStorage.removeItem("apiKey")
-    setLogin(false)
-    navigate("/login")
+  let disconnect = async () => {
+    let response = await fetch (backendURL+"/users/disconect?apiKey="+localStorage.getItem("apiKey"))
+    if ( response.ok){
+      localStorage.removeItem("apiKey");
+      setLogin(false)
+      navigate("/login")
+      }
   }
 
 
@@ -112,7 +112,7 @@ let App = ()=> {
                 {key:"MenuDashboard", label:<Link to="/dashboards">Dashboards</Link> },
                 {key:"MenuAdd", label:<Link to="/add">Añadir</Link> },
                 {key:"MenuApproved", label:<Link to="/approved">Aprobados</Link> },
-                {key:"MenuDisconnect", label:<Link to="#" onClick={disconnect}>Sign out</Link> },
+                {key:"MenuDisconect", label:<Link to="#" onClick={disconnect}>Sign out</Link> },
 
                 //{key:"MenuRegister", label:<Link to="/register">Registrarse</Link> },
               ]}>

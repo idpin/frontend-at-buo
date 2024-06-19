@@ -188,7 +188,7 @@ let [message, setMessage] = useState("")
     return (
 
     
-        <div className="search-form">
+        <div style={{paddingTop:'3cm'}} className="search-form">
         
         
             <div className="ph2">

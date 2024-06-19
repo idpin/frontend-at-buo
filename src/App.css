@@ -90,13 +90,15 @@ padding-top: 2cm;
 
 .cajas-centradas {
   
-  display: flex; 
-  justify-content: center; 
+  display:inline-flex; 
+  text-align: center;
+  padding-left: '6cm';
 
 }
 .boton {
   
   display: flex; 
+  text-align: center;
   justify-content: center;
   padding-left: 15.3cm; 
 }
@@ -113,13 +115,14 @@ padding-top: 2cm;
   margin-top: px;
   margin-bottom: 20px;
   margin-right: 1cm;
-  padding: 8px;
+  padding-left: 6cm;
+  
   font-size: 18px;
   font-family: sans-serif;
   border: 1px solid #cbcaca;
   border-radius: 5px;
-  width: 150px;
-  size: '6cm';
+  width: 30%;
+  size: '3cm';
 
   margin-block-end: 100;
 }
@@ -130,7 +133,7 @@ padding-top: 2cm;
 .caja-linea {
   border: 1px;
   float:inline-end;
-  padding-right: '10cm';
+  
   width: 350px;
 
   
