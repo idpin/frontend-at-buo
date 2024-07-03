@@ -1,4 +1,4 @@
-import { Card, Input, Row, Col, Button, DatePicker, Form} from "antd";
+import { Card, Input, Row, Col, Button, DatePicker, Form, Alert} from "antd";
 import { useRef, useState } from "react";
 import { backendURL } from "../Globals";
 import dayjs from 'dayjs';
@@ -11,7 +11,7 @@ const onFinish = (values) => {
 
 let AddComponent = () => {
 let [article, setArticle] = useState({})
-let [message, setMessage] = useState("");
+let [message, setMessage] = useState ();
     
     let titulo = useRef(null)
     let doi = useRef(null)
@@ -97,7 +97,7 @@ let [message, setMessage] = useState("");
         })
 
         if (response.ok){
-            
+          setMessage ("Nuevo artículo añadido")
         } else {
 
         }
@@ -138,6 +138,7 @@ let [message, setMessage] = useState("");
             onClick={clickCreate}
             
             block>Añadir</Button>
+            { message != "" && <Alert type="info" message={message}/>}
         </Card>
         </Col>
     </Row>  

@@ -11,7 +11,7 @@ import RequirementsComponent from './Components/RequirementsComponent';
 import WorkflowComponent from './Components/WorkflowComponent';
 import DashboardComponent from './Components/DashboardComponent';
 import AboutComponent from './Components/AboutComponent';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, message } from 'antd';
 import { Header } from 'antd/es/layout/layout';
 import { useEffect, useState } from 'react';
 import AvailablesComponent from './Components/AvailablesComponent';
@@ -19,6 +19,7 @@ import ReportsComponent from './Components/ReportsComponent';
 import QueriesComponent from './Components/QueriesComponent';
 import AddComponent from './Components/AddComponent';
 import ApprovedComponent from './Components/ApprovedComponent';
+import ApprovedPruebaComponent from './Components/ApprovedPruebaComponent';
 import Title from 'antd/es/typography/Title'
 import uniovi from './uniovi.jpg';
 
@@ -26,13 +27,17 @@ import { wiley} from './wiley.png';
 
 import React from 'react';
 import { Divider } from 'antd';
+import { notification } from 'antd';
 import { backendURL } from './Globals';
 
 
 
 
 let App = ()=> {
-  let [notification, setNotification] = useState("");
+
+  const [api, contextHolder] = notification.useNotification()
+
+
   let [login, setLogin] = useState(false)
   let navigate = useNavigate();
   let { Header, Content, Footer} = Layout
@@ -41,6 +46,8 @@ let App = ()=> {
   useEffect (()=>{
     checkLogin();
   },[])
+
+
 
   let checkLogin = async () => {
     if (localStorage.getItem("apiKey") != null){
@@ -59,6 +66,16 @@ let App = ()=> {
   
   }
 
+ 
+  let createNotification = (type="error", msg, placement="top") => {
+     api[type]({
+         message: msg,
+        description: msg,
+         placement
+     })
+    }
+
+
   let disconnect = async () => {
     let response = await fetch (backendURL+"/users/disconect?apiKey="+localStorage.getItem("apiKey"))
     if ( response.ok){
@@ -69,22 +86,32 @@ let App = ()=> {
   }
 
 
-
+  console.log(window.location.pathname);
 
   return (
+    
+    <>
+    {contextHolder}
+
 <meta charSet='UTF-8' name='viewport' content='width-device-widthe, initial-scale=1.0'>
 </meta>,
-    <Layout className='webcolor' style={{ minHeight:'100vh', paddingLeft: '4cm', paddingRight: '4cm'}} >
-     
+
+
+    <Layout className='webcolor' style={{ minHeight:'100vh'}} >
+    
+
       <Header className='HeaderAnt'>
-           
+  
+  
      <Content style={{}}>
       <img style={{paddingTop:'0.3cm', paddingLeft: '0.9cm'}} src={uniovi} className="App-logo"/>
       <header className= "imagen-texto" style={{fontFamily: 'Arial Light', fontStretch: 'expanded', display: 'inline', paddingLeft: '1cm',  fontSize: '60px', fontWeight: 'bold'}}><span style={{color: '#00a3e0'}}>Acuerdos</span><span style={{color: '#8e8e8e'}}> Transformativos</span></header>
-    
+     
      </Content>
      
-              { !login && ( //para cuando no estás logueado
+   
+
+              {  window.location.pathname !=="/login" &&  !login && ( //para cuando no estás logueado
             <Menu className='HeaderAnt' style={{float:'right', fontFamily: 'Yu Gothic Light',paddingTop: '0.1cm', fontSize: '18px', fontWeight: '900', minWidth: '700px', paddingLeft: '0.5cm', paddingRight:'1cm'}} mode= 'horizontal' items={[
                 {key:"menuAbout", label:<Link to="/about">Información</Link> },
                 {key:"menuRequeriments", label:<Link to="/requeriments">Requisitos</Link> },
@@ -101,7 +128,8 @@ let App = ()=> {
        )} 
        
 
-          { login && ( //para cuando estás logueado
+       
+          { window.location.pathname !=="/login" && login && ( //para cuando estás logueado
               <Menu className='HeaderAnt' style={{float:'right', fontFamily: 'Yu Gothic Light',paddingTop: '0.1cm', fontSize: '18px', fontWeight: '900', minWidth: '700px', paddingLeft: '0.5cm', paddingRight:'1cm'}} mode= 'horizontal' items={[
                 {key:"menuAbout", label:<Link to="/about">Información</Link> },
                 {key:"menuRequeriments", label:<Link to="/requeriments">Requisitos</Link> },
@@ -112,6 +140,7 @@ let App = ()=> {
                 {key:"MenuDashboard", label:<Link to="/dashboards">Dashboards</Link> },
                 {key:"MenuAdd", label:<Link to="/add">Añadir</Link> },
                 {key:"MenuApproved", label:<Link to="/approved">Aprobados</Link> },
+                {key:"MenuApprovedPrueba", label:<Link to="/approvedprueba">AprobadosPrueba</Link> },
                 {key:"MenuDisconect", label:<Link to="#" onClick={disconnect}>Sign out</Link> },
 
                 //{key:"MenuRegister", label:<Link to="/register">Registrarse</Link> },
@@ -165,9 +194,12 @@ let App = ()=> {
 
             }/>,<Route path="/approved" element={
               <ApprovedComponent/>
+
+            }/>,<Route path="/approvedprueba" element={
+              <ApprovedPruebaComponent/>
               
             }/>,<Route path="/login" element={
-              <LoginUserComponent setLogin={setLogin}/>
+              <LoginUserComponent setLogin={setLogin} createNotification={createNotification}/>
 
             }/>
         </Routes>
@@ -177,7 +209,7 @@ let App = ()=> {
         Biblioteca de la Universidad de Oviedo
       </Footer>
     </Layout>
-      
+  </>
 
 
   );

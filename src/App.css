@@ -90,9 +90,9 @@ padding-top: 2cm;
 
 .cajas-centradas {
   
-  display:inline-flex; 
-  text-align: center;
-  padding-left: '6cm';
+  display:inline-flex;
+  margin-left: 10cm;
+  
 
 }
 .boton {
@@ -115,7 +115,7 @@ padding-top: 2cm;
   margin-top: px;
   margin-bottom: 20px;
   margin-right: 1cm;
-  padding-left: 6cm;
+ 
   
   font-size: 18px;
   font-family: sans-serif;
@@ -124,21 +124,26 @@ padding-top: 2cm;
   width: 30%;
   size: '3cm';
 
-  margin-block-end: 100;
+  
 }
 
 
 
 
-.caja-linea {
+.caja-linea { 
   border: 1px;
-  float:inline-end;
+
   
   width: 350px;
 
   
 }
 
+.alert {
+  top: 500px;
+  margin: 0 auto;
+  left: 35%;
+  }
 
 .search-button {
   padding: 10px 15px;

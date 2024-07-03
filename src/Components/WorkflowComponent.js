@@ -3,7 +3,7 @@ let WorkflowComponent = () => {
 
     return (
 
-<div style={{paddingLeft: '7cm', paddingRight: '7cm', paddingTop: '1.5cm'}}>
+<div style={{paddingLeft: '7cm', paddingRight: '7cm', paddingTop: '2cm'}}>
 <h2 className='pr11' style={{paddingBottom: '0.1cm', textAlign:'left'}}>El procedimiento de solicitud de financiación es más o menos igual para todos los editores:</h2>
        
        

@@ -30,7 +30,7 @@ let AvailablesComponent = () => {
         },
         yAxis: {
           type: 'category',
-          data: ['IEEE', 'RSC', 'ACS', 'Wiley', 'Springer', 'Elsevier']
+          data: ['IEEE', 'RSC', 'ACS', 'Wiley', 'Springer', 'Elsevier'] //jsondata.categories o cualquier otro nombre... quitando los corchetes Hay que hacer una petición Api al back para pedirle los datos de articles y luego aquí en el front una petición fetch de ese servicio en el back. Mirar el fetch de search
         },
         series: [
           {
@@ -51,7 +51,7 @@ let AvailablesComponent = () => {
       return (
      
         
-        <div style={{ textAlign:'center', width: '50%', paddingTop: "3cm"}}>
+        <div style={{ width: '50%', paddingTop: "3cm"}}>
          <ReactECharts option={option} />
          <p className="pr11">Para CUP y SCOAP los APCs son ilimitados.</p>
          </div>

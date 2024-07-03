@@ -23,7 +23,7 @@ let [publisher, setPublisher] = useState([])
 let [journals, setJournals] = useState ([])
 let [message, setMessage] = useState("")
 
-
+console.log("aquí también");
 
 
 
@@ -115,11 +115,6 @@ let [message, setMessage] = useState("")
         }
         
       
-      
-
-
-
-
 
        
 
