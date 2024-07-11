@@ -2,8 +2,9 @@ import ReactECharts from 'echarts-for-react';
 import { backendURL } from "../Globals";
 import React, { useState, useEffect } from 'react';
 import { getMouseEventOptions } from '@testing-library/user-event/dist/utils';
-import { Card } from 'antd';
 import Item from 'antd/es/list/Item';
+import { Label } from '@mui/icons-material';
+import { Card, Col, Row } from 'antd';
 
 
 
@@ -13,9 +14,46 @@ let ReportsComponent = () => {
 
   
   let [articles, setArticles] = useState ([])
+   let [departamentos, setDepartamentos] = useState ([])
   let [message, setMessage] = useState("")
 
-  let getRecuperarAprobados2 = async () => { 
+  let getRama = async () => { 
+   
+    let response = await fetch(backendURL+"/analytics/rama", {
+
+    })
+    
+  console.log("hola");
+    
+  if ( response.ok ){
+  
+    
+  let jsonData = await response.json();
+  
+   
+  setArticles(jsonData)
+    
+   
+  } else {
+  
+  let jsonData = await response.json();
+  
+  alert(jsonData.error);
+   
+  setMessage(jsonData.error+"error")
+   
+  }
+ 
+  }
+  useEffect(() => {
+    getRama();
+  }, [])
+  
+  console.log("dentro");
+
+
+ 
+  let getDepartamento = async () => { 
    
     let response = await fetch(backendURL+"/analytics/departamento", {
 
@@ -29,7 +67,7 @@ let ReportsComponent = () => {
   let jsonData = await response.json();
   
    
-  setArticles(jsonData)
+  setDepartamentos(jsonData)
     
    
   } else {
@@ -44,54 +82,26 @@ let ReportsComponent = () => {
  
   }
   useEffect(() => {
-    getRecuperarAprobados2();
-  }, [])
-  
-
-  console.log("dentro");
- 
-  let getRecuperarAprobados = async () => { 
-   
-    let response = await fetch(backendURL+"/analytics", {
-
-    })
-    
-  console.log("hola");
-    
-  if ( response.ok ){
-  
-    
-  let jsonData = await response.json();
-  
-   
-  setArticles(jsonData)
-    
-   
-  } else {
-  
-  let jsonData = await response.json();
-  
-  alert(jsonData.error);
-   
-  setMessage(jsonData.error+"error")
-   
-  }
- 
-  }
-  useEffect(() => {
-    getRecuperarAprobados();
+    getDepartamento();
   }, [])
 
-  
-  
 
   console.log("dentro");
+
+
    
-  const option = {
+  const rama = {
     xAxis: {
       type: 'category',
-      data: articles.map(item=>item.ramaDepartamento)
+      data: articles.map(item=>item.ramaDepartamento),
+      Label: {
+        show: true,
+        interval: 0,
+        rotate: 45,
+      }
+    
     },
+
     yAxis: {
       type: 'value'
     },
@@ -102,29 +112,51 @@ let ReportsComponent = () => {
       }
     ]
   };
-      const optionother = {
-        xAxis: {
-          type: 'category',
-          data: articles.map(item=>item.departamento)
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [
-          {
-            data: articles.map(item=>item.cantidad),
-            type: 'bar'
-          }
-        ]
-      };
+
+  const departamento = {
+    xAxis: {
+      type: 'category',
+      data: departamentos.map(item=>item.departamento),
+      Label: {
+        show: true,
+        interval: 0,
+        rotate: 45,
+      }
+    
+    },
+
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: departamentos.map(item=>item.cantidad),
+        type: 'bar'
+      }
+    ]
+  };
+
+
+
+ 
+      
       
     return (
        
-        <div style={{width:'30%', paddingTop:'3cm', textAlign:'left'}}>
-        <h2 className='pr11'>Departamentos</h2>
-        <ReactECharts option={optionother} />
-        <ReactECharts option={option} />
-        </div>
+
+<Row gutter={16}>
+    <Col span={8}>
+      <Card title="Artículos aprobados por ramas del conocimiento" bordered={false}>
+      <ReactECharts option={rama} />
+      </Card>
+    </Col>
+    <Col span={8}>
+      <Card title="Artículos aprobados por departamentos uniovi" bordered={false}>
+      <ReactECharts option={departamento} />
+     
+      </Card>
+    </Col>
+  </Row>
 
 
     )

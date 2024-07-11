@@ -145,6 +145,28 @@ padding-top: 2cm;
   left: 35%;
   }
 
+  .barra-uniovi {
+    background-color: rgb(0, 133, 120);
+    height: 4em;
+    display: flex;
+    align-items: center;
+  }
+
+  .uniovi-logo {
+    height: 3.8em;
+    display: flex;
+    align-items: center;
+    text-align: right;
+  }
+  
+  .titulo {
+  
+    font-size: 2.5em;
+    font-family: sans-serif;
+    color:rgb(248, 244, 244);
+    margin-left: 0.8em;
+  }
+
 .search-button {
   padding: 10px 15px;
   font-size: 18px;

@@ -21,7 +21,7 @@ import AddComponent from './Components/AddComponent';
 import ApprovedComponent from './Components/ApprovedComponent';
 import ApprovedPruebaComponent from './Components/ApprovedPruebaComponent';
 import Title from 'antd/es/typography/Title'
-import uniovi from './uniovi.jpg';
+import unioviblanco from './unioviblanco.png';
 
 import { wiley} from './wiley.png';
 
@@ -97,17 +97,20 @@ let App = ()=> {
 </meta>,
 
 
-    <Layout className='webcolor' style={{ minHeight:'100vh'}} >
-    
+    <Layout  style={{ minHeight:'100vh'}} >
+
+    <Header className='barra-uniovi'>
+        <h className="titulo">at-buo</h>
+        
+        <img style={{paddingTop:'0.3cm', paddingLeft: '0.9cm'}} src={unioviblanco} className="uniovi-logo"/>
+        </Header>
+        
+       
 
       <Header className='HeaderAnt'>
   
   
-     <Content style={{}}>
-      <img style={{paddingTop:'0.3cm', paddingLeft: '0.9cm'}} src={uniovi} className="App-logo"/>
-      <header className= "imagen-texto" style={{fontFamily: 'Arial Light', fontStretch: 'expanded', display: 'inline', paddingLeft: '1cm',  fontSize: '60px', fontWeight: 'bold'}}><span style={{color: '#00a3e0'}}>Acuerdos</span><span style={{color: '#8e8e8e'}}> Transformativos</span></header>
      
-     </Content>
      
    
 
