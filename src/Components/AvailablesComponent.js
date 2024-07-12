@@ -51,10 +51,12 @@ let AvailablesComponent = () => {
       return (
      
         
-        <div style={{ width: '50%', paddingTop: "3cm"}}>
+        <div  
+        style={{ width: '50%', paddingTop: "3cm"}}>
          <ReactECharts option={option} />
-         <p className="pr11">Para CUP y SCOAP los APCs son ilimitados.</p>
+        
          </div>
+         //<p className="pr11">Para CUP y SCOAP los APCs son ilimitados.</p>
        
        
      )

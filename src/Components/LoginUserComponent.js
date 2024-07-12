@@ -5,9 +5,16 @@ import { Navigate, json } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Checkbox, Form } from 'antd';
+
 
 let LoginUserComponent = (props) => {
 
+    
+    const onFinish = (values) => {
+        console.log('Received values of form: ', values);
+    };
 
     let { setLogin } = props;
 
@@ -49,18 +56,90 @@ let LoginUserComponent = (props) => {
 
 
     return (
+      
+    <Row className='cajas-centradas'>
+       <Col>
+       { message != "" && <Alert type="error" message={message}/>}
+    <Card  style={
+        {
+            width: '350px'
+        }
+    }>
+            <Form
+              name="normal_login"
+              className="login-form"
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={onFinish}
+            >
+              <Form.Item
+                name="username"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your Username!',
+                  },
+                ]}
+              >
+                <Input ref={email}
+                prefix={<UserOutlined className="site-form-item-icon" />} 
+                placeholder="Username" 
+                type="username"
+                />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your Password!',
+                  },
+                ]}
+              >
+                
+                <Input ref={password} 
+                  prefix={<LockOutlined className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
         
-        <Row align="middle" justify="center" style={{minHeight: "70vh"}}>
-            <Col>
-            { message != "" && <Alert type="error" message={message}/>}
-                <Card title="Login" style={{ width: "500px"}}>
-                    <Input ref={email} size="large" type="text" placeholder= "tu correo"></Input>
-                    <Input ref={password} size="large" type="password" style={{marginTop: "5px"}} placeholder= "tu contraseña"></Input>
-                     <Button type="primary" style={{marginTop: "10px"}} onClick={clickLogin} block>Login</Button>
-                </Card>
-            </Col>
-         </Row>  
-         
+                <a className="login-form-forgot" href="">
+                  Forgot password
+                </a>
+              </Form.Item>
+        
+              <Form.Item>
+                <Button onClick={clickLogin}
+                type="primary" htmlType="submit" className="login-form-button">
+                  Log in
+                </Button>
+                Or <a href="">register now!</a>
+              </Form.Item>
+            </Form>
+        </Card>
+     </Col>
+    </Row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
     )
 }
 
